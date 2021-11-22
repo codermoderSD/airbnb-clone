@@ -22,7 +22,7 @@ function InfoCard({ item }) {
         <h4 className="text-xl">{item.title}</h4>
         <div className="border-b w-10 pt-2" />
 
-        <p className="pt-2 text-sm text-gray-500 flex-grow">
+        <p className="pt-2 text-sm text-gray-500 flex-grow hidden md:inline-flex">
           {item.description}
         </p>
 

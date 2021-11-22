@@ -3,6 +3,8 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { format } from "date-fns";
 import InfoCard from "../components/InfoCard";
+import Map from "../components/Map";
+import { useEffect } from "react";
 
 function Search({ searchResults }) {
   const router = useRouter();
@@ -17,7 +19,10 @@ function Search({ searchResults }) {
     <div>
       <Header placeholder={`${location} | ${range} | ${numOfGuest} guests`} />
 
-      <main className="flex">
+      <main className="flex flex-col">
+        <section className="inline-flex w-full h-80">
+          <Map searchResults={searchResults} />
+        </section>
         <section className="flex-grow pt-14 px-6">
           <p className="text-xs ">
             Stays from {range} for {numOfGuest} guests

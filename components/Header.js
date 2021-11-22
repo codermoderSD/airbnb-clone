@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/solid";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
-import { DateRangePicker } from "react-date-range";
+import { Calendar, DateRange, DateRangePicker } from "react-date-range";
 import { useRouter } from "next/dist/client/router";
 
 function Header({ placeholder }) {
@@ -87,12 +87,22 @@ function Header({ placeholder }) {
 
       {searchInput && (
         <div className="flex flex-col col-span-3 mx-auto mt-1">
-          <DateRangePicker
-            ranges={[selectionRange]}
-            minDate={new Date()}
-            rangeColors={["#fd5b61"]}
-            onChange={handleSelect}
-          />
+          <div className="hidden md:inline-flex">
+            <DateRangePicker
+              ranges={[selectionRange]}
+              minDate={new Date()}
+              rangeColors={["#fd5b61"]}
+              onChange={handleSelect}
+            />
+          </div>
+          <div className="inline-flex md:hidden">
+            <DateRange
+              ranges={[selectionRange]}
+              date={new Date()}
+              rangeColors={["#fd5b61"]}
+              onChange={handleSelect}
+            />
+          </div>
           <div className="flex items-center border-b mb-4 pb-2">
             <h2 className="text-2xl flex-grow font-semibold text-gray-700">
               Number of Guests
